@@ -1,17 +1,35 @@
-# itunes_musicplayer
+# iTunes_Musicplayer
 
-A new Flutter project.
+## Project Description
 
-## Getting Started
+This is a MusicPlayer developed using Flutter.
+A user can Search the Artist and a List of songs of that particular artist are shown.
+If user Clicks on a song, It shows some corresponding details of the track and the AudioPlayer(Pause, Play).
 
-This project is a starting point for a Flutter application.
+### Supported Platforms
 
-A few resources to get you started if this is your first Flutter project:
+Windows
+Android
+IOS (Not Tested Yet)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Supported Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Search the Song
+Play the Song
+Pause the Song
+
+## Packages
+
+get: ^4.6.5
+audioplayers: ^1.1.1
+http: ^0.13.5
+
+### API Used
+
+https://itunes.apple.com/search?term=${keyWord}
+
+## ContactInfo
+
+Email: Muzamilrafiq000@gmail.com
+
 # MusicPlayer_ESS
