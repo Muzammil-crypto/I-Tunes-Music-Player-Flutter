@@ -12,19 +12,17 @@ class HomePageController extends GetxController {
   RxBool songPlaying = false.obs;
   RxBool search = false.obs;
   TextEditingController textEditingController = TextEditingController();
-
   Song songSelected = Song();
   final player = AudioPlayer();
 
   @override
   void onInit() {
     getSongs();
-
     super.onInit();
   }
 
   void getSongs() async {
-    await NetworkServices(keyWord: "Shakira").getRequest().then((value) {
+    await NetworkServices(keyWord: "Pitbul").getRequest().then((value) {
       if (value != null) {
         musicModel = MusicModel.fromJson(value);
         isLoading.value = false;
@@ -34,6 +32,7 @@ class HomePageController extends GetxController {
 
   void getSearchedSongs(keyword) async {
     print("SEARCHED WORD IS ${keyword}");
+    musicModel.removeSongs();
     await NetworkServices(keyWord: keyword).getRequest().then((value) {
       if (value != null) {
         musicModel = MusicModel.fromJson(value);
