@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itunes_musicplayer/controllers/home_page_controller.dart';
 import 'package:itunes_musicplayer/theme/theme_helper.dart';
+import 'package:itunes_musicplayer/widgets/custom_iconButton.dart';
 import 'package:itunes_musicplayer/widgets/custom_textButton.dart';
 import 'package:itunes_musicplayer/widgets/message_card.dart';
 import 'package:itunes_musicplayer/widgets/search_field.dart';
@@ -48,15 +49,7 @@ class HomePage extends StatelessWidget {
                   ),
           ),
           actions: [
-            GestureDetector(
-              onTap: () {
-                homePagecontroller
-                    .searchClicked(!homePagecontroller.search.value);
-              },
-              child: homePagecontroller.search.value
-                  ? const Icon(Icons.close)
-                  : const Icon(Icons.search),
-            ),
+            CustomIconButtons(homePagecontroller: homePagecontroller),
           ],
         ),
         body: Center(
