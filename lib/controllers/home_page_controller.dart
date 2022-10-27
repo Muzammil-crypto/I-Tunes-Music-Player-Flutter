@@ -33,6 +33,8 @@ class HomePageController extends GetxController {
   void getSearchedSongs(keyword) async {
     print("SEARCHED WORD IS ${keyword}");
     musicModel.removeSongs();
+    isLoading.value = true;
+
     await NetworkServices(keyWord: keyword).getRequest().then((value) {
       if (value != null) {
         musicModel = MusicModel.fromJson(value);
@@ -59,6 +61,5 @@ class HomePageController extends GetxController {
 
   searchClicked(value) async {
     search.value = value;
-    print("Clicekd");
   }
 }

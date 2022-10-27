@@ -8,8 +8,6 @@ import 'package:itunes_musicplayer/theme/theme_helper.dart';
 
 class HomePage extends StatelessWidget {
   final HomePageController homePagecontroller = Get.put(HomePageController());
-  // final songDetailsController = Get.put(SongDetailsController());
-  // final musicPlayerController = MusicPlayerController();
   FocusNode focusNode = FocusNode();
 
   @override
@@ -19,9 +17,9 @@ class HomePage extends StatelessWidget {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: ThemeHelper.accentColor,
+        backgroundColor: ThemeHelper.secondry,
         appBar: AppBar(
-          backgroundColor: ThemeHelper.accentColor,
+          backgroundColor: ThemeHelper.secondry,
           title: Center(
             child: homePagecontroller.search.value
                 ? Container(
@@ -33,7 +31,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: ThemeHelper.accentColor,
                               borderRadius: BorderRadius.circular(18)),
                           width: width / 2,
                           child: TextField(
@@ -42,7 +40,7 @@ class HomePage extends StatelessWidget {
                                   homePagecontroller.textEditingController,
                               style: TextStyle(
                                 fontSize: 15.0,
-                                color: Colors.black,
+                                color: ThemeHelper.secondry,
                               ),
                               decoration: InputDecoration(
                                   contentPadding:
@@ -54,12 +52,14 @@ class HomePage extends StatelessWidget {
                                   hintText: "Search the Artist",
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: Colors.white, width: 25.0),
+                                          color: ThemeHelper.accentColor,
+                                          width: 25.0),
                                       borderRadius:
                                           BorderRadius.circular(18.0)),
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: Colors.white, width: 25.0),
+                                          color: ThemeHelper.accentColor,
+                                          width: 25.0),
                                       borderRadius:
                                           BorderRadius.circular(18.0)))),
                         ),
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                           child: TextButton(
                             child: Text(
                               "Search",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: ThemeHelper.accentColor),
                             ),
                             onPressed: () => {
                               homePagecontroller.getSearchedSongs(
@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                     ))
                 : Text(
                     "My Playlist",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ThemeHelper.accentColor),
                   ),
           ),
           actions: [
@@ -113,18 +113,25 @@ class HomePage extends StatelessWidget {
                                 ),
                                 color: ThemeHelper.primaryColor,
                                 child: ListTile(
-                                  title: Text(homePagecontroller
-                                          .musicModel.songs
-                                          ?.elementAt(index)
-                                          .trackName ??
-                                      "N/A"),
-                                  subtitle: Text(homePagecontroller
-                                          .musicModel.songs
-                                          ?.elementAt(index)
-                                          .artistName ??
-                                      "N/A"),
-                                  trailing: const Icon(
+                                  title: Text(
+                                    homePagecontroller.musicModel.songs
+                                            ?.elementAt(index)
+                                            .trackName ??
+                                        "N/A",
+                                    style:
+                                        TextStyle(color: ThemeHelper.secondry),
+                                  ),
+                                  subtitle: Text(
+                                    homePagecontroller.musicModel.songs
+                                            ?.elementAt(index)
+                                            .artistName ??
+                                        "N/A",
+                                    style:
+                                        TextStyle(color: ThemeHelper.secondry),
+                                  ),
+                                  trailing: Icon(
                                     Icons.play_arrow,
+                                    color: ThemeHelper.accentColor,
                                   ),
                                   leading: CircleAvatar(
                                       backgroundImage: NetworkImage(
@@ -142,7 +149,7 @@ class HomePage extends StatelessWidget {
                             itemCount:
                                 homePagecontroller.musicModel.songs?.length ??
                                     0),
-                        color: Colors.black,
+                        color: ThemeHelper.secondry,
                       ),
                       flex: 4,
                     ),
@@ -166,8 +173,7 @@ class HomePage extends StatelessWidget {
                                     height: 44,
                                     width: 44,
                                     decoration: BoxDecoration(
-                                        color:
-                                            const Color.fromARGB(83, 0, 0, 0),
+                                        color: ThemeHelper.shadowColor,
                                         borderRadius:
                                             BorderRadius.circular(20)),
                                     child: IconButton(
@@ -217,17 +223,18 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              color: Colors.white,
+                              color: ThemeHelper.accentColor,
                             ),
                             flex: 4,
                           )
                         : Expanded(
                             child: Container(
                               padding: const EdgeInsets.only(top: 30),
-                              child: const Center(
+                              child: Center(
                                 child: Text(
                                   "Select Song",
-                                  style: TextStyle(color: Colors.white),
+                                  style:
+                                      TextStyle(color: ThemeHelper.accentColor),
                                 ),
                               ),
                             ),
