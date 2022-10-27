@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:itunes_musicplayer/models/music_model.dart';
 
@@ -9,17 +10,31 @@ class HomePageController extends GetxController {
   RxBool isLoading = true.obs;
   RxBool songClicked = false.obs;
   RxBool songPlaying = false.obs;
+  RxBool search = false.obs;
+  TextEditingController textEditingController = TextEditingController();
+
   Song songSelected = Song();
   final player = AudioPlayer();
 
   @override
   void onInit() {
     getSongs();
+
     super.onInit();
   }
 
   void getSongs() async {
-    await NetworkServices().getRequest().then((value) {
+    await NetworkServices(keyWord: "Shakira").getRequest().then((value) {
+      if (value != null) {
+        musicModel = MusicModel.fromJson(value);
+        isLoading.value = false;
+      }
+    });
+  }
+
+  void getSearchedSongs(keyword) async {
+    print("SEARCHED WORD IS ${keyword}");
+    await NetworkServices(keyWord: keyword).getRequest().then((value) {
       if (value != null) {
         musicModel = MusicModel.fromJson(value);
         isLoading.value = false;
@@ -41,5 +56,10 @@ class HomePageController extends GetxController {
   pauseMusic() async {
     await player.pause();
     songPlaying.value = false;
+  }
+
+  searchClicked(value) async {
+    search.value = value;
+    print("Clicekd");
   }
 }
