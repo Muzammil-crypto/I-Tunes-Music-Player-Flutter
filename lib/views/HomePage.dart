@@ -57,6 +57,7 @@ class HomePage extends StatelessWidget {
           () => homePagecontroller.isLoading.value
               ? const CircularProgressIndicator()
               : Container(
+                  // margin: EdgeInsets.only(top: 10),
                   child: Row(children: [
                     Expanded(
                       child: Container(
