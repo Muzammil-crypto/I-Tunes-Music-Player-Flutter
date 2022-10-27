@@ -26,14 +26,14 @@ class HomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: ThemeHelper.primaryColor,
                         borderRadius: BorderRadius.circular(18)),
-                    width: width / 1.8,
+                    width: width / 1.7,
                     child: Row(
                       children: [
                         Container(
                           decoration: BoxDecoration(
                               color: ThemeHelper.accentColor,
                               borderRadius: BorderRadius.circular(18)),
-                          width: width / 2,
+                          width: width / 2.9,
                           child: TextField(
                               focusNode: focusNode,
                               controller:
@@ -43,8 +43,8 @@ class HomePage extends StatelessWidget {
                                 color: ThemeHelper.secondry,
                               ),
                               decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
+                                  contentPadding: const EdgeInsets.fromLTRB(
+                                      5.0, 5.0, 5.0, 5.0),
                                   prefixIcon: Icon(
                                     Icons.search,
                                     color: ThemeHelper.primaryColor,
@@ -63,17 +63,19 @@ class HomePage extends StatelessWidget {
                                       borderRadius:
                                           BorderRadius.circular(18.0)))),
                         ),
-                        Container(
-                          child: TextButton(
+                        InkWell(
+                          child: Container(
+                            margin:
+                                EdgeInsets.only(left: width / 16.5, bottom: 5),
                             child: Text(
                               "Search",
                               style: TextStyle(color: ThemeHelper.accentColor),
                             ),
-                            onPressed: () => {
-                              homePagecontroller.getSearchedSongs(
-                                  homePagecontroller.textEditingController.text)
-                            },
                           ),
+                          onTap: () => {
+                            homePagecontroller.getSearchedSongs(
+                                homePagecontroller.textEditingController.text)
+                          },
                         )
                       ],
                     ))
@@ -89,8 +91,8 @@ class HomePage extends StatelessWidget {
                     .searchClicked(!homePagecontroller.search.value);
               },
               child: homePagecontroller.search.value
-                  ? Icon(Icons.close)
-                  : Icon(Icons.search),
+                  ? const Icon(Icons.close)
+                  : const Icon(Icons.search),
             ),
           ],
         ),
