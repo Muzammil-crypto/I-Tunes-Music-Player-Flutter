@@ -66,10 +66,12 @@ class HomePage extends StatelessWidget {
                         InkWell(
                           child: Container(
                             margin:
-                                EdgeInsets.only(left: width / 16.5, bottom: 5),
+                                EdgeInsets.only(left: width / 18, bottom: 5),
                             child: Text(
                               "Search",
-                              style: TextStyle(color: ThemeHelper.accentColor),
+                              style: TextStyle(
+                                color: ThemeHelper.accentColor,
+                              ),
                             ),
                           ),
                           onTap: () => {
@@ -227,11 +229,11 @@ class HomePage extends StatelessWidget {
                               ),
                               color: ThemeHelper.accentColor,
                             ),
-                            flex: 4,
+                            flex: 3,
                           )
                         : Expanded(
                             child: Container(
-                              padding: const EdgeInsets.only(top: 30),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Center(
                                 child: Text(
                                   "Select Song",

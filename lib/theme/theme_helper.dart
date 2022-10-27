@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ThemeHelper {
-  static Color primaryColor = Color.fromARGB(255, 250, 110, 35);
-  static Color secondry = Color.fromARGB(255, 0, 0, 0);
+  static Color primaryColor = const Color.fromARGB(255, 250, 110, 35);
+  static Color secondry = const Color.fromARGB(255, 0, 0, 0);
 
   static Color accentColor = Colors.white;
-  static Color shadowColor = Color.fromARGB(22, 0, 0, 0);
+  static Color shadowColor = const Color.fromARGB(22, 0, 0, 0);
 
   static ThemeData getThemeData() {
     return ThemeData(

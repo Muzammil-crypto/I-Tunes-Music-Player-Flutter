@@ -31,7 +31,6 @@ class HomePageController extends GetxController {
   }
 
   void getSearchedSongs(keyword) async {
-    print("SEARCHED WORD IS ${keyword}");
     musicModel.removeSongs();
     isLoading.value = true;
 
