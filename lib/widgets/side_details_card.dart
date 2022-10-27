@@ -35,7 +35,27 @@ class SideDetailCard extends StatelessWidget {
                     homePagecontroller.songSelected.artworkUrl60 ?? "N/A"),
               ),
             ),
-            PlayerControls(homePagecontroller: homePagecontroller),
+            Container(
+              height: 44,
+              width: 44,
+              decoration: BoxDecoration(
+                  color: ThemeHelper.shadowColor,
+                  borderRadius: BorderRadius.circular(20)),
+              child: IconButton(
+                  onPressed: () async => {
+                        if (homePagecontroller.songPlaying.value)
+                          {await homePagecontroller.pauseMusic()}
+                        else
+                          {
+                            await homePagecontroller.playMusic(UrlSource(
+                                homePagecontroller.songSelected.previewUrl ??
+                                    "N/A"))
+                          }
+                      },
+                  icon: Icon(homePagecontroller.songPlaying.value
+                      ? Icons.pause
+                      : Icons.play_arrow)),
+            ),
             Container(
               padding: const EdgeInsets.only(top: 30),
               child: Column(children: [
